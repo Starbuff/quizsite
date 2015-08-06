@@ -1,0 +1,49 @@
+body 
+{
+	min-height: 100%;
+	margin-left: 3%;
+	margin-right: 3%;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	text-align: center; 
+	color: #eee;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font: 14px Georgia, serif;
+	background-image: url(drapes.jpg);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+html
+{
+	min-height: 100%
+}
+h1 
+{ 	font-size: 42px; 
+	font-weight: 600; 
+	margin: 0 0 30px 0; 
+}
+
+h3
+{
+	font-size: 20px; 
+	font-weight: 400; 
+	color: #CC0000; 
+}
+
+div
+{
+	font-style: color: #CC0000;
+}
+
+form
+{
+	vertical-align: center;
+}
+
+pre {
+	background: black;
+	text-align: left;
+	padding: 20px;
+	margin: 0 auto 30px auto; 
+}
