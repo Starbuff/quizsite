@@ -2,30 +2,34 @@ from django.shortcuts import render
 # coding: utf-8
 
 quizzes = {
-	"Twin_Peaks": {
+	"klassiker": {
    		"name": u"Twin Peaks",
 	   	"description": u"Hur väl kommer du ihåg TV-serien?"
 	},
-	"Battlestar_Galactica": {
-	   	"name": u"Battlestar Galactica",
-	   	"description": u"Hur väl kommer du ihåg TV-serien?"
-	},
-	"House_M.D.": {
-	    	"name": u"House M.D.",
-	    	"description": u"Hur väl kommer du ihåg TV-serien?"	},
+	"fotboll": {
+ 	   	"name": u"Battlestar Galactica",
+ 	   	"description": u"Hur väl kommer du ihåg TV-serien?"
+ 	},
+ 	"kanda-hackare": {
+ 	    	"name": u"House M.D.",
+ 	    	"description": u"Hur väl kommer du ihåg TV-serien?"	}, 
 }
 
 
-def quiz_main(request):
+def startpage(request):
 	context = {
 		"quizzes": quizzes,
 	}
-	return render(request, "quiz/quiz_main.html", context)
+	return render(request, "quiz/startpage.html", context)
 
-def quiz_start_tp(request):
-	return render(request, "quiz/quiz_start_tp.html")
+def quiz(request, slug):
+	context = {
+		"quiz": quizzes[slug],
+		"quiz_slug": slug,
+	}
+	return render(request, "quiz/quiz.html")
 
-def quiz_qa_tp(request, slug, number):
+def question(request, slug, number):
 	context = {
 	"question_number": number,
    	"question": u"Hur många bultar har ölandsbron?",
@@ -34,12 +38,12 @@ def quiz_qa_tp(request, slug, number):
    	"answer3": u"7 428 954",
    	"quiz_slug": slug,
 }
-	return render(request, "quiz/quiz_qa_tp.html")
+	return render(request, "quiz/question.html")
 
-def quiz_results_tp(request, slug):
+def completed(request, slug):
 	context = {
 	   	"correct": 12,
 	   	"total": 20,
 		"quiz_slug": slug,
 	}
-	return render(request, "quiz/quiz_results_tp.html", context)
+	return render(request, "quiz/completed.html", context)

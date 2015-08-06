@@ -2,8 +2,8 @@
 <html>
 	<head>
 		<title>Quiz by Maria Kareliusson</title>
-		<link rel="stylesheet" type="text/css" href="normalize.css">
-		<link rel="stylesheet" type="text/css" href="quiz.css">
+		<link rel="stylesheet" type="text/css" href="/static/normalize.css">
+		<link rel="stylesheet" type="text/css" href="/static/quiz.css">
 		 <!--Favicon
     	<link rel="shortcut icon" href="favicon.ico"> -->
     	<meta charset="utf-8">
@@ -14,14 +14,14 @@
 			<img src="twin_peaks.jpg"alt="Twin Peaks intro" style="width:35%">
 			<br>
 		</div>
-		<div>
+		<!-- <div>
 			<a href="quiz_qa_tp.html">Starta</a>
-		</div>
-	<audio c
+		</div> -->
+	<!-- <audio c
 	ontrols="controls" loop="loop" preload="none">
 	<source src="file:///Users/maria/Music/iTunes/iTunes Media/Music/The Beatles/Love/18 Here Comes the Sun _ the Inner Light.mp3" type="audio/		mpeg">
 	Your browser does not support the audio element.
-	</audio>
-	
+	</audio> -->
+	<p><a href="{% url "question" quiz_slug 1 %}">Starta</a></p>
 	</body>
 </html>

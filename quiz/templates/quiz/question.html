@@ -2,8 +2,8 @@
 <html>
 	<head>
 		<title>Quiz by Maria Kareliusson</title>
-		<link rel="stylesheet" type="text/css" href="normalize.css">
-		<link rel="stylesheet" type="text/css" href="quiz.css">
+		<link rel="stylesheet" type="text/css" href="/static/normalize.css">
+		<link rel="stylesheet" type="text/css" href="/static/quiz.css">
 		 <!--Favicon
     	<link rel="shortcut icon" href="favicon.ico"> -->
     	<meta charset="utf-8">
@@ -13,7 +13,7 @@
 		<div>
 		<img src="nightingale.png" alt="Twin Peaks Nightingale" style="width:20%">
 		</div>
-	<form>
+	<!-- <form>
 		Hur många invånare finns i Twin Peaks enligt välkomsskylten?<br><br>
 		<input type="radio" name="content" value="svarsalternativ 1" checked>49.201
 		<br>
@@ -21,19 +21,24 @@
 		<br>
 		<input type="radio" name="content" value="svarsalternativ 3" checked>42,104
 		<br> <br>
-	</form>
+	</form> -->
 	<!-- Enter-knapp för att skicka in svaret, genererad via http://css3buttongenerator.com/ .btn finns i CSSn-->
-	<div>
+	<!-- <div>
 		<a href="quiz_results.html"> >>Nästa</a>
-	</div>
+	</div> -->
 	<!-- Progress Bar: Antal frågor besvarade: Antal frågor kvar:-->
-	<div class="meter">
+	<!-- <div class="meter">
 	<span style="width: 10%"></span>
 	</div>
+ -->
 	<h1>{{ question_number }} {{ question }}</h1>
 	<p>{{ answer1 }}</p>
 	<p>{{ answer2 }}</p>
 	<p>{{ answer3 }}</p>
+
+	<p>
+	<a href="{% url "completed" quiz_slug %}"> Nästa </a>
+	</p>
 
 	</body>
 </html>
