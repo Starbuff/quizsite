@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from quiz import views
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r"^quiz/[a-z]+/$, views, quiz),
+    url(r"^quiz/[a-z]+/question/[0-9]/$", views.question),
+    url(r"^quiz/[a-z]+/completed/$", views.completed),
 ]
