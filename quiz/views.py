@@ -25,7 +25,15 @@ def quiz_main(request):
 def quiz_start_tp(request):
 	return render(request, "quiz/quiz_start_tp.html")
 
-def quiz_qa_tp(request):
+def quiz_qa_tp(request, slug, number):
+	context = {
+	"question_number": number,
+   	"question": u"Hur många bultar har ölandsbron?",
+	"answer1": u"12",
+  	"answer2": u"66 400",
+   	"answer3": u"7 428 954",
+   	"quiz_slug": slug,
+}
 	return render(request, "quiz/quiz_qa_tp.html")
 
 def quiz_results_tp(request):
