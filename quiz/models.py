@@ -13,3 +13,5 @@ class Question(models.Model):
 	answer2 = models.CharField(max_length=100)
 	answer3 = models.CharField(max_length=100)
 	correct = models.PositiveIntegerField()
+	def__unicode__(self):
+		return self.name
