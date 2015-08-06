@@ -14,17 +14,27 @@
 		<h1>Quiz</h1>
 		<h2>Hur väl kommer du ihåg dessa serier?<h2><br>
 		<div></div>
-			<h3><a href="quiz_start_tp.html"> Twin Peaks</a><br></h3>
-			<img src="population.png"alt="Twin Peaks" style="width:35%">
+		
+		<br><br>
+
+	{% for quiz_slug, quiz in quizzes.items %}
+		<!-- <a href="quiz_start_tp.html"> Twin Peaks</a><br>
+		<img src="/images/population.png"alt="Twin Peaks" style="width:35%">
 		</div><br><br>
+
 		<div>
-		<h3><a href="quiz_start.html"> Battlestar Galactica</a><br></h3>
-		<img src="battlestar-galactica.jpg"alt="Battlestar Galactica" style="width:35%">
+		<a href="quiz_start.html"> Battlestar Galactica</a><br>
+		<img src="/images/battlestar-galactica.jpg"alt="Battlestar Galactica" style="width:35%">
 		</div><br><br>
+
 		<div>
-		<h3><a href="quiz_start.html"> House M.D.</a><br></h3>
-		<img src="house.jpg"alt="House M.D." style="width:35%">
-		</div><br><br>
+		<a href="quiz_start.html"> House M.D.</a><br>
+		<img src="/images/house.jpg"alt="House M.D." style="width:35%">
+		</div> -->
+		<h1>{{ quiz.name}}</h1>
+		<p>{{ quiz.description }}</p><br>
+		</p>
+	{% endfor %}
 	</body>
 
 </html
