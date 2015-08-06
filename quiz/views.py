@@ -36,5 +36,10 @@ def quiz_qa_tp(request, slug, number):
 }
 	return render(request, "quiz/quiz_qa_tp.html")
 
-def quiz_results_tp(request):
-	return render(request, "quiz/quiz_results_tp.html")
+def quiz_results_tp(request, slug):
+	context = {
+	   	"correct": 12,
+	   	"total": 20,
+		"quiz_slug": slug,
+	}
+	return render(request, "quiz/quiz_results_tp.html", context)
