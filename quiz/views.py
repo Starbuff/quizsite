@@ -27,7 +27,7 @@ def quiz(request, slug):
 		"quiz": quizzes[slug],
 		"quiz_slug": slug,
 	}
-	return render(request, "quiz/quiz.html")
+	return render(request, "quiz/quiz.html", context)
 
 def question(request, slug, number):
 	context = {
@@ -38,7 +38,7 @@ def question(request, slug, number):
    	"answer3": u"7 428 954",
    	"quiz_slug": slug,
 }
-	return render(request, "quiz/question.html")
+	return render(request, "quiz/question.html", context)
 
 def completed(request, slug):
 	context = {
