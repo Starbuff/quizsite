@@ -33,7 +33,6 @@ def question(request, slug, number):
 	number = int(number)
 	quiz = Quiz.objects.get(slug=slug)
 	questions = quiz.questions.all()
-	question = questions[number - 1]
 	
 	if request.POST:
 		answer = int(request.POST["answer"])
@@ -49,6 +48,8 @@ def question(request, slug, number):
 			return redirect("completed_page", quiz.slug)
 		else: 
 			return redirect("questions_page", quiz.slug, number + 1)
+
+	question = questions[number - 1]
 
 	context = {
 	"question_number": number,
