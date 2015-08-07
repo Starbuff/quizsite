@@ -1,24 +1,25 @@
 from django.shortcuts import render
+from quiz.models import Quiz
 # coding: utf-8
 
-quizzes = {
-	"klassiker": {
-   		"name": u"Twin Peaks",
-	   	"description": u"Hur väl kommer du ihåg TV-serien?"
-	},
-	"fotboll": {
- 	   	"name": u"Battlestar Galactica",
- 	   	"description": u"Hur väl kommer du ihåg TV-serien?"
- 	},
- 	"kanda-hackare": {
- 	    	"name": u"House M.D.",
- 	    	"description": u"Hur väl kommer du ihåg TV-serien?"	}, 
-}
+#quizzes = {
+	# "klassiker": {
+ #   		"name": u"Twin Peaks",
+	#    	"description": u"Hur väl kommer du ihåg TV-serien?"
+	# },
+	# "fotboll": {
+ # 	   	"name": u"Battlestar Galactica",
+ # 	   	"description": u"Hur väl kommer du ihåg TV-serien?"
+ # 	},
+ # 	"kanda-hackare": {
+ # 	    	"name": u"House M.D.",
+ # 	    	"description": u"Hur väl kommer du ihåg TV-serien?"	}, 
+#}
 
 
 def startpage(request):
 	context = {
-		"quizzes": quizzes,
+		"quizzes": Quiz.objects.all(),
 	}
 	return render(request, "quiz/startpage.html", context)
 

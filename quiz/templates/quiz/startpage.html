@@ -17,12 +17,13 @@
 		
 		<br><br>
 
-	{% for quiz_slug, quiz in quizzes.items %}
-	
-		<h1>{{ quiz.name}}</h1>
-		<p>{{ quiz.description }}</p><br>
-		<a href="{% url "quiz_page" quiz_slug %}"></a>
-	{% endfor %}
+		{% for quiz in quizzes %}
+
+			<h1>{{ quiz.name}}</h1>
+			<p>{{ quiz.description }}</p><br>
+			<a href="{% url "quiz_page" quiz.slug %}"
+
+		{% endfor %} 	
 
 	<!-- <a href="quiz_start_tp.html"> Twin Peaks</a><br>
 		<img src="/images/population.png"alt="Twin Peaks" style="width:35%">
