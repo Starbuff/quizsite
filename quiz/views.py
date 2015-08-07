@@ -34,6 +34,7 @@ def question(request, slug, number):
 	quiz = Quiz.objects.get(slug=slug)
 	questions = quiz.questions.all()
 	question = questions[number - 1]
+	
 	if request.POST:
 		answer = int(request.POST["answer"])
 
@@ -43,7 +44,7 @@ def question(request, slug, number):
 
 			saved_answers[str(number)] = answer
 			request.session[quiz.slug] = saved_answers
-			
+
 		if questions.count() == number:
 			return redirect("completed_page", quiz.slug)
 		else: 
@@ -66,7 +67,7 @@ def completed(request, slug):
 
 	num_correct_answers = 0
 	for counter, question in enumerate(questions):
-		if question.answer == saved_answers[str(counter + 1)]: num_correct_answers += 1
+		if question.correct == saved_answers[str(counter + 1)]: num_correct_answers += 1
 
 	context = {
 	   	"correct": correct,
