@@ -11,17 +11,15 @@
 	</head>
 
 	<body>
-		<h1>Quiz</h1>
-		<h2>Hur väl kommer du ihåg dessa serier?<h2><br>
+		<h1>Welcome</h1>
+		<h2>These quizzes are available:<h2>
 		<div></div>
-		
-		<br><br>
 
 		{% for quiz in quizzes %}
 
-			<a href="{% url "quiz_page" quiz.slug %}"> <h1>{{ quiz.name}}</h1> </a>
-			<p> {{ quiz.description }}</p><br>
-
+			<a href="{% url "quiz_page" quiz.slug %}"> <h2>{{ quiz.name}}</h2> </a>
+			<!-- <img src="/static/twin_peaks.jpg"alt="Twin Peaks intro" style="width:30%">
+ -->
 		{% endfor %} 	
 
 	</body>
