@@ -11,34 +11,35 @@
 	<body>
 		<h2>Twin Peaks Trivia</h2>
 		<div>
-		<img src="nightingale.png" alt="Twin Peaks Nightingale" style="width:20%">
+		<img src="/static/nightingale.png" alt="Twin Peaks Nightingale" style="width:20%">
 		</div>
-	<!-- <form>
-		Hur många invånare finns i Twin Peaks enligt välkomsskylten?<br><br>
-		<input type="radio" name="content" value="svarsalternativ 1" checked>49.201
-		<br>
-		<input type="radio" name="content" value="svarsalternativ 2" checked>51.201
-		<br>
-		<input type="radio" name="content" value="svarsalternativ 3" checked>42,104
-		<br> <br>
-	</form> -->
-	<!-- Enter-knapp för att skicka in svaret, genererad via http://css3buttongenerator.com/ .btn finns i CSSn-->
-	<!-- <div>
-		<a href="quiz_results.html"> >>Nästa</a>
-	</div> -->
-	<!-- Progress Bar: Antal frågor besvarade: Antal frågor kvar:-->
-	<!-- <div class="meter">
-	<span style="width: 10%"></span>
-	</div>
- -->
-	<h1>{{ question_number }} {{ question }}</h1>
-	<p>{{ answer1 }}</p>
-	<p>{{ answer2 }}</p>
-	<p>{{ answer3 }}</p>
 
+
+	<h2>{{ question }}</h2>
+	
+	<form action="{% url "question_page" quiz.slug question_number %}" method="post">
+	{% csrf_token %}
 	<p>
-	<a href="{% url "question_page" quiz.slug question_number|add:1 %}"> Nästa </a>
+		<label>
+			<input type="radio" name="answer" value="="1> {{answer1}}
+		</label> <br>
+
+		<label>
+			<input type="radio" name="answer" value="="2> {{answer2}}
+		</label><br>
+
+		<label>
+			<input type="radio" name="answer" value="="3> {{answer3}}
+		</label><br><br>
+
+		<button type="submit"> <a href="{% url "question_page" quiz.slug question_number|add:1 %}"> > </a>
+		</button>
 	</p>
+
+	</form>
+
+	
+
 
 	</body>
 </html>

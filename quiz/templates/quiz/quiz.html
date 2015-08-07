@@ -9,20 +9,16 @@
     	<meta charset="utf-8">
 	</head>
 	<body>
-		<h1>Twin Peaks trivia time!</h1>
+		<h1>{{ quiz.name }}</h1>
+<!-- 	<p>{{ quiz.description }}</p> -->
+
 		<div>
-			<img src="twin_peaks.jpg"alt="Twin Peaks intro" style="width:35%">
+			<img src="/static/twin_peaks.jpg"alt="Twin Peaks intro" style="width:35%">
 			<br>
 		</div>
 	
 	{% url "question_page" quiz.slug 1 %}
-
-	<h1>{{ quiz.name }}</h1>
-	<p>{{ quiz.description }}</p>
-
-	<p><a href="{% url "question_page" quiz_slug 1 %}">Starta</a></p>
-
-	{% endfor %}
+	<p><a href="{% url "question_page" quiz.slug 1 %}"> Till första frågan</a></p>
 
 	</body>
 </html>

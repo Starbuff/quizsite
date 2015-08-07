@@ -9,7 +9,7 @@ body
 	color: #eee;
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	font: 14px Georgia, serif;
-	background-image: url(/images/drapes.jpg);
+	background-image: url(/static/drapes.jpg);
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 }

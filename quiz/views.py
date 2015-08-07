@@ -31,11 +31,23 @@ def quiz(request, slug):
 
 def question(request, slug, number):
 	number = int(number)
-	quiz = Quiz.objects,get(slug=slug)
+	quiz = Quiz.objects.get(slug=slug)
 	questions = quiz.questions.all()
-	question = question[number - 1]
-	if number > questions.count():
-		return redirect("completed:page", quiz.slug)
+	question = questions[number - 1]
+	if request.POST:
+		answer = int(request.POST["answer"])
+
+		saved_answers = {}
+		if quiz.slug in request.session:
+			saved_answers = request.session[quiz.slug]
+
+			saved_answers[str(number)] = answer
+			request.session[quiz.slug] = saved_answers
+			
+		if questions.count() == number:
+			return redirect("completed_page", quiz.slug)
+		else: 
+			return redirect("questions_page", quiz.slug, number + 1)
 
 	context = {
 	"question_number": number,
@@ -48,9 +60,17 @@ def question(request, slug, number):
 	return render(request, "quiz/question.html", context)
 
 def completed(request, slug):
+	quiz = Quiz.objects.get(slug=slug)
+	questions = quiz.questions.all()
+	saved_answers = request.session[slug]
+
+	num_correct_answers = 0
+	for counter, question in enumerate(questions):
+		if question.answer == saved_answers[str(counter + 1)]: num_correct_answers += 1
+
 	context = {
-	   	"correct": 12,
-	   	"total": 20,
-		"quiz_slug": slug,
+	   	"correct": correct,
+	   	"total": questions.count(),
+		"quiz": quiz,
 	}
 	return render(request, "quiz/completed.html", context)

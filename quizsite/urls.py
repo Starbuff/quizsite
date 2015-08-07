@@ -2,6 +2,7 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.conf.urls import include
 from quiz import views
+
 urlpatterns = [
 	url("^$", views.startpage, name="start_page"),
 	url(r"^quiz/([a-z-]+)/$", views.quiz, name="quiz_page"),
