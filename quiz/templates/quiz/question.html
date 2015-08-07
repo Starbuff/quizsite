@@ -21,18 +21,18 @@
 	{% csrf_token %}
 	<p>
 		<label>
-			<input type="radio" name="answer" value="="1> {{answer1}}
+			<input type="radio" name="answer" value="1"> {{answer1}}
 		</label> <br>
 
 		<label>
-			<input type="radio" name="answer" value="="2> {{answer2}}
+			<input type="radio" name="answer" value="2"> {{answer2}}
 		</label><br>
 
 		<label>
-			<input type="radio" name="answer" value="="3> {{answer3}}
+			<input type="radio" name="answer" value="3"> {{answer3}}
 		</label><br><br>
 
-		<button type="submit"> <a href="{% url "question_page" quiz.slug question_number|add:1 %}"> > </a>
+		<button type="submit"> > </a>
 		</button>
 	</p>
 
