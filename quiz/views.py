@@ -1,21 +1,21 @@
+# coding: utf-8
 from django.shortcuts import render
 from quiz.models import Quiz
-# coding: utf-8
+from django.shortcuts import redirect
 
-#quizzes = {
-	# "klassiker": {
- #   		"name": u"Twin Peaks",
-	#    	"description": u"Hur väl kommer du ihåg TV-serien?"
-	# },
-	# "fotboll": {
- # 	   	"name": u"Battlestar Galactica",
- # 	   	"description": u"Hur väl kommer du ihåg TV-serien?"
- # 	},
- # 	"kanda-hackare": {
- # 	    	"name": u"House M.D.",
- # 	    	"description": u"Hur väl kommer du ihåg TV-serien?"	}, 
-#}
-
+# quizzes = {
+# 	"klassiker": {
+#  	   	"name": u"Twin Peaks",
+# 	    	"description": u"Hur väl kommer du ihåg TV-serien?"
+# 	 },
+# 	 "fotboll": {
+#   	   	"name": u"Battlestar Galactica",
+#   	   	"description": u"Hur väl kommer du ihåg TV-serien?"
+#   	},
+#   	"kanda-hackare": {
+#   	    	"name": u"House M.D.",
+#   	    	"description": u"Hur väl kommer du ihåg TV-serien?"	}, 
+# }
 
 def startpage(request):
 	context = {
@@ -25,19 +25,25 @@ def startpage(request):
 
 def quiz(request, slug):
 	context = {
-		"quiz": quizzes[slug],
-		"quiz_slug": slug,
+		"quiz": Quiz.objects.get(slug=slug),
 	}
 	return render(request, "quiz/quiz.html", context)
 
 def question(request, slug, number):
+	number = int(number)
+	quiz = Quiz.objects,get(slug=slug)
+	questions = quiz.questions.all()
+	question = question[number - 1]
+	if number > questions.count():
+		return redirect("completed:page", quiz.slug)
+
 	context = {
 	"question_number": number,
-   	"question": u"Hur många bultar har ölandsbron?",
-	"answer1": u"12",
-  	"answer2": u"66 400",
-   	"answer3": u"7 428 954",
-   	"quiz_slug": slug,
+   	"question": question.question,
+	"answer1": question.answer1,
+  	"answer2": question.answer2,
+   	"answer3": question.answer3,
+   	"quiz": quiz,
 }
 	return render(request, "quiz/question.html", context)
 
