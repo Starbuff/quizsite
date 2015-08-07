@@ -34,7 +34,7 @@ def question(request, slug, number):
 	quiz = Quiz.objects.get(slug=slug)
 	questions = quiz.questions.all()
 	question = questions[number - 1]
-	
+
 	if request.POST:
 		answer = int(request.POST["answer"])
 
@@ -70,7 +70,7 @@ def completed(request, slug):
 		if question.correct == saved_answers[str(counter + 1)]: num_correct_answers += 1
 
 	context = {
-	   	"correct": correct,
+	   	"correct": num_correct_answers,
 	   	"total": questions.count(),
 		"quiz": quiz,
 	}
