@@ -9,7 +9,7 @@
     	<meta charset="utf-8">
 	</head>
 	<body>
-		<h1>{{ question_number }} {{ question }}</h1>
+		<!-- <h1>{{ question_number }} {{ question }}</h1> -->
 <!-- 	<p>{{ quiz.description }}</p> -->
 
 		<div>
@@ -18,7 +18,9 @@
 		</div>
 	
 	{% url "question_page" quiz.slug 1 %}
-	<h2><a href="{% url "question_page" quiz.slug 1 %}"> Start quiz</a></h2>
+	<h2>
+	<a href="{% url "question_page" quiz.slug 1 %}"> Start quiz</a>
+	</h2>
 
 	</body>
 </html>
